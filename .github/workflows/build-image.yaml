@@ -28,14 +28,24 @@ jobs:
           echo "=== smart-docker-build directory exists? ==="
           test -d smart-docker-build && echo "✅ smart-docker-build directory found" || echo "❌ smart-docker-build directory not found"
         
-      - name: Debug - List files in smart-docker-build
+      - name: Debug - Full directory structure
         run: |
-          echo "=== smart-docker-build directory contents ==="
-          ls -la smart-docker-build/
-          echo "=== action.yaml exists? ==="
-          test -f smart-docker-build/action.yaml && echo "✅ action.yaml found" || echo "❌ action.yaml not found"
-          echo "=== internal/get directory contents ==="
-          ls -la smart-docker-build/internal/get/ || echo "❌ internal/get directory not found"
+          echo "=== Current working directory ==="
+          pwd
+          echo ""
+          echo "=== Full directory structure ==="
+          find . -type f -name "*.yaml" -o -name "*.yml" -o -name "Dockerfile" | head -20
+          echo ""
+          echo "=== All directories ==="
+          find . -type d | head -20
+          echo ""
+          echo "=== Top level files and directories ==="
+          ls -la
+          echo ""
+          echo "=== GitHub workspace ==="
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+          echo "GITHUB_REF: $GITHUB_REF"
         
       - name: Run smart-docker-build action
         uses: ./smart-docker-build
