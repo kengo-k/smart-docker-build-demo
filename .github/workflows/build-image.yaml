@@ -14,9 +14,19 @@ jobs:
         with:
           repository: kengo-k/smart-docker-build
           path: smart-docker-build
+          ref: main
           
       - name: Checkout current repository
         uses: actions/checkout@v4
+        
+      - name: Debug - List files in smart-docker-build
+        run: |
+          echo "=== smart-docker-build directory contents ==="
+          ls -la smart-docker-build/
+          echo "=== action.yaml exists? ==="
+          test -f smart-docker-build/action.yaml && echo "✅ action.yaml found" || echo "❌ action.yaml not found"
+          echo "=== internal/get directory contents ==="
+          ls -la smart-docker-build/internal/get/ || echo "❌ internal/get directory not found"
         
       - name: Run smart-docker-build action
         uses: ./smart-docker-build
