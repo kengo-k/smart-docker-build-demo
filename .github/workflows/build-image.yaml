@@ -9,45 +9,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout current repository
+        uses: actions/checkout@v4
+        with:
+          path: current-repo
+          
       - name: Checkout smart-docker-build
         uses: actions/checkout@v4
         with:
           repository: kengo-k/smart-docker-build
           path: smart-docker-build
           ref: main
-          
-      - name: Checkout current repository
-        uses: actions/checkout@v4
-        
-      - name: Debug - Check if smart-docker-build was checked out
-        run: |
-          echo "=== Current directory ==="
-          pwd
-          echo "=== Directory contents ==="
-          ls -la
-          echo "=== smart-docker-build directory exists? ==="
-          test -d smart-docker-build && echo "✅ smart-docker-build directory found" || echo "❌ smart-docker-build directory not found"
-        
-      - name: Debug - Full directory structure
-        run: |
-          echo "=== Current working directory ==="
-          pwd
-          echo ""
-          echo "=== Full directory structure ==="
-          find . -type f -name "*.yaml" -o -name "*.yml" -o -name "Dockerfile" | head -20
-          echo ""
-          echo "=== All directories ==="
-          find . -type d | head -20
-          echo ""
-          echo "=== Top level files and directories ==="
-          ls -la
-          echo ""
-          echo "=== GitHub workspace ==="
-          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
-          echo "GITHUB_REF: $GITHUB_REF"
-        
       - name: Run smart-docker-build action
         uses: ./smart-docker-build
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          dockerfile-path: ./current-repo/Dockerfile
