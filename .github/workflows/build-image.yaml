@@ -9,19 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout current repository
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          path: current-repo
           
-      - name: Checkout smart-docker-build
-        uses: actions/checkout@v4
-        with:
-          repository: kengo-k/smart-docker-build
-          path: smart-docker-build
-          ref: main
       - name: Run smart-docker-build action
-        uses: ./smart-docker-build
+        uses: kengo-k/smart-docker-build@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          dockerfile-path: ./current-repo/Dockerfile
