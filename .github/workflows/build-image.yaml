@@ -26,7 +26,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Test Smart Docker Build Action
-        uses: kengo-k/smart-docker-build@v1.0.2
+        uses: kengo-k/smart-docker-build@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           timezone: 'Asia/Tokyo'
