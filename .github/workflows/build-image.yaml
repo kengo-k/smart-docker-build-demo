@@ -19,6 +19,15 @@ jobs:
       - name: Checkout current repository
         uses: actions/checkout@v4
         
+      - name: Debug - Check if smart-docker-build was checked out
+        run: |
+          echo "=== Current directory ==="
+          pwd
+          echo "=== Directory contents ==="
+          ls -la
+          echo "=== smart-docker-build directory exists? ==="
+          test -d smart-docker-build && echo "✅ smart-docker-build directory found" || echo "❌ smart-docker-build directory not found"
+        
       - name: Debug - List files in smart-docker-build
         run: |
           echo "=== smart-docker-build directory contents ==="
