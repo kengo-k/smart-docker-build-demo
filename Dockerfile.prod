@@ -1,3 +1,4 @@
 # image: my-image-prod
+# imagetag_on_branch_pushed: ["v1.0.0"]
 FROM node:18
 WORKDIR /app
