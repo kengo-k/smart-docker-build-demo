@@ -1,3 +1,3 @@
-# image: my-image
+# image: my-image-prod
 FROM node:18
 WORKDIR /app
