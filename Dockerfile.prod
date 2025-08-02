@@ -1,5 +1,5 @@
 # image: my-image-prod
-# imagetag_on_branch_pushed: ["v1.0.3"]
-# watch_files: ["Dockerfile.prod"]
+# imageTagsOnBranchPushed: ["v1.0.3"]
+# watchFiles: ["Dockerfile.prod"]
 FROM node:18
 WORKDIR /app
