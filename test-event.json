@@ -1,51 +1,11 @@
 {
-  "ref": "refs/heads/develop",
-  "before": "a12afe0bb3baaa0a8ab2976e94dd250953d3aac1",
-  "after": "3eabc32e1a55717d2631cddcc93d6d6663adffb1",
+  "ref": "refs/heads/main",
+  "before": "3fb1eb407936bd3e173f5e130a4418cbb9fb9985",
+  "after": "29422a793e430870f1a1ae777593199065622a76",
   "repository": {
-    "name": "smart-docker-build",
+    "name": "_smart-docker-build-test",
     "owner": {
       "login": "kengo-k"
-    }
-  },
-  "pusher": {
-    "name": "kengo-k",
-    "email": "test@example.com"
-  },
-  "sender": {
-    "login": "kengo-k"
-  },
-  "created": false,
-  "deleted": false,
-  "forced": false,
-  "base_ref": null,
-  "compare": "https://github.com/kengo-k/smart-docker-build/compare/0000000000000000000000000000000000000000...develop",
-  "commits": [
-    {
-      "id": "1234567890abcdef1234567890abcdef12345678",
-      "message": "test commit",
-      "timestamp": "2024-01-01T00:00:00Z",
-      "author": {
-        "name": "kengo-k",
-        "email": "test@example.com"
-      },
-      "committer": {
-        "name": "kengo-k",
-        "email": "test@example.com"
-      }
-    }
-  ],
-  "head_commit": {
-    "id": "1234567890abcdef1234567890abcdef12345678",
-    "message": "test commit",
-    "timestamp": "2024-01-01T00:00:00Z",
-    "author": {
-      "name": "kengo-k",
-      "email": "test@example.com"
-    },
-    "committer": {
-      "name": "kengo-k",
-      "email": "test@example.com"
     }
   }
 }
