@@ -67,4 +67,19 @@ assert_json_length() {
   
   local result=$(echo "$json" | jq -r "length")
   assert_equal "$message" "$expected_length" "$result"
+}
+
+# Helper function to check if a value matches a pattern
+assert_matches_pattern() {
+  local message="$1"
+  local value="$2"
+  local pattern="$3"
+  
+  if [[ "$value" =~ $pattern ]]; then
+    echo "✓ PASS: $message"
+    return 0
+  else
+    echo "✗ FAIL: $message (value: '$value', pattern: '$pattern')" >&2
+    return 1
+  fi
 } 
