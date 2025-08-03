@@ -3,11 +3,11 @@
 # Load helper functions
 load "$(dirname "$BATS_TEST_FILENAME")/helpers"
 
-@test "integration push test" {
+@test "push test with push-event-01.json" {
   echo "Starting test..." >&3
   
-  # Run the same command as make integration-push-test
-  run act -s GITHUB_TOKEN=$(gh auth token) -e test-push-event-01.json -W .github/workflows/integration-test.yml
+  # Run act command for push event test
+  run act -s GITHUB_TOKEN=$(gh auth token) -e push-event-01.json -W .github/workflows/integration-test.yml
   
   echo "Command executed with exit code: $status" >&3
   echo "Output length: ${#output}" >&3
