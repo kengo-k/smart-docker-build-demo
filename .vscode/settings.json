@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "*.bats": "shellscript"
+  },
+  "shellscript.suggest.paths": true,
+  "shellscript.validate": true
+} 
