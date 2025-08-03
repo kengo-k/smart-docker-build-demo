@@ -10,8 +10,7 @@ load "$(dirname "$BATS_TEST_FILENAME")/helpers"
   run act -s GITHUB_TOKEN=$(gh auth token) -e push-event-01.json -W .github/workflows/integration-test.yml
   
   echo "Command executed with exit code: $status" >&3
-  echo "Output length: ${#output}" >&3
-  echo "First 200 characters of output: ${output:0:200}" >&3
+  echo "${output}" >&3
   
   # Extract JSON from specific [info] lines and test with jq
   # Example: Extract changedFiles JSON
@@ -21,7 +20,7 @@ load "$(dirname "$BATS_TEST_FILENAME")/helpers"
     echo "Found changedFiles JSON: $changed_files_json" >&3
     
     # Check if "Dockerfile.prod" is included in changedFiles
-    test_json_with_jq "$changed_files_json" 'any(.changedFiles[] == "Dockerfile.prodd")' "true"
+    assert_json_contains "$changed_files_json" "Dockerfile.prod" "changedFiles should contain Dockerfile.prod"
   fi
   
   # Example: Extract other info JSON
