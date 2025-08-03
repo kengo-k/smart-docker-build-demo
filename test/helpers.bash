@@ -19,11 +19,16 @@ extract_json_from_info() {
   done
 }
 
+# Debug output function (redirects to stderr for BATS visibility)
+debug() {
+  echo "$1" >&3
+}
+
 # Simple assert function
 assert_equal() {
-  local expected="$1"
-  local actual="$2"
-  local message="${3:-Values should be equal}"
+  local message="$1"
+  local expected="$2"
+  local actual="$3"
   
   if [[ "$expected" == "$actual" ]]; then
     echo "✓ PASS: $message"
@@ -41,25 +46,25 @@ test_json_with_jq() {
   local expected_value="$3"
   
   local result=$(echo "$json" | jq -r "$jq_query")
-  assert_equal "$expected_value" "$result" "jq query '$jq_query' should return '$expected_value'"
+  assert_equal "jq query '$jq_query' should return '$expected_value'" "$expected_value" "$result"
 }
 
 # Helper function to check if JSON array contains a value
 assert_json_contains() {
-  local json="$1"
-  local expected_value="$2"
-  local message="${3:-JSON should contain '$expected_value'}"
+  local message="$1"
+  local json="$2"
+  local expected_value="$3"
   
   local result=$(echo "$json" | jq -r "any(. == \"$expected_value\")")
-  assert_equal "true" "$result" "$message"
+  assert_equal "$message" "true" "$result"
 }
 
 # Helper function to check JSON array length
 assert_json_length() {
-  local json="$1"
-  local expected_length="$2"
-  local message="${3:-JSON array should have length $expected_length}"
+  local message="$1"
+  local json="$2"
+  local expected_length="$3"
   
   local result=$(echo "$json" | jq -r "length")
-  assert_equal "$expected_length" "$result" "$message"
+  assert_equal "$message" "$expected_length" "$result"
 } 
