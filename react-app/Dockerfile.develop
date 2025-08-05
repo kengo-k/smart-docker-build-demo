@@ -1,4 +1,6 @@
-# 開発用Dockerfile
+# Smart Docker Build Demo: 開発サーバー用（ホットリロード、デバッグ機能）
+# image: react-calculator-dev
+# imageTagsOnTagPushed: null
 FROM node:18-alpine
 
 # 作業ディレクトリを設定

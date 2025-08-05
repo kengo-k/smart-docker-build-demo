@@ -1,4 +1,7 @@
-# 本番用Dockerfile（マルチステージビルド）
+# Smart Docker Build Demo: 本番用（マルチステージビルド、nginx）
+# image: react-calculator-prod
+# imageTagsOnBranchPushed: null
+# imageTagsOnTagPushed: ["{tag}"]
 FROM node:18-alpine AS builder
 
 # 作業ディレクトリを設定

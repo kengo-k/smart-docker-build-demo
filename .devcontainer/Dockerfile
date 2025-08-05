@@ -1,4 +1,8 @@
-# Dev Container用Dockerfile
+# Smart Docker Build Demo: ローカル開発環境用（VS Code Dev Container）
+# image: react-calculator-devcontainer
+# imageTagsOnTagPushed: null
+# imageTagsOnBranchPushed: ["devcontainer"]
+# watchFiles: ["Dockerfile", ".devcontainer/**/*"]
 FROM node:18-alpine
 
 # 開発ツールをインストール
