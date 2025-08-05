@@ -15,4 +15,4 @@ jobs:
     - name: Test smart-docker-build action
       uses: kengo-k/smart-docker-build@main
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GHCR_TOKEN }}
