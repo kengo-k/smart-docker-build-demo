@@ -16,4 +16,3 @@ jobs:
       uses: kengo-k/smart-docker-build@main
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        use_dryrun: 'true'
