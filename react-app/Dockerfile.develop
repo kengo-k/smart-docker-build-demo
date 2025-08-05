@@ -1,5 +1,5 @@
 # Smart Docker Build Demo: 開発サーバー用（ホットリロード、デバッグ機能）
-# image: react-calculator-dev
+# image: react-calculator-app-dev
 # imageTagsOnTagPushed: null
 FROM node:18-alpine
 

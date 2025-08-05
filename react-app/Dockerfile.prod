@@ -1,5 +1,5 @@
 # Smart Docker Build Demo: 本番用（マルチステージビルド、nginx）
-# image: react-calculator-prod
+# image: react-calculator-app-prod
 # imageTagsOnBranchPushed: null
 # imageTagsOnTagPushed: ["{tag}"]
 FROM node:18-alpine AS builder
