@@ -1,7 +1,7 @@
 # Smart Docker Build Demo: ローカル開発環境用（VS Code Dev Container）
 # image: react-calculator-devcontainer
 # imageTagsOnTagPushed: null
-# imageTagsOnBranchPushed: ["v1.0.0"]
+# imageTagsOnBranchPushed: ["v1.0.3"]
 # watchFiles: ["Dockerfile", ".devcontainer/**/*"]
 FROM node:18-alpine
 

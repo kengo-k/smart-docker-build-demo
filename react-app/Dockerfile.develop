@@ -1,5 +1,6 @@
 # Smart Docker Build Demo: 開発サーバー用（ホットリロード、デバッグ機能）
 # image: react-calculator-app-dev
+# imageTagsOnPullRequest: [ "pr-{pr_number}-{sha}" ]
 # imageTagsOnTagPushed: null
 FROM node:18-alpine
 

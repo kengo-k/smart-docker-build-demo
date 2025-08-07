@@ -1,13 +1,10 @@
-name: Integration Tests
+name: Smart Docker Build - Plan Only
 
 on:
-  push:
-    branches: [ main ]
-    tags: [ '*' ]
   workflow_dispatch:
 
 jobs:
-  test-smart-docker-build:
+  smart-docker-build-demo:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -16,4 +13,5 @@ jobs:
     - name: Test smart-docker-build action
       uses: kengo-k/smart-docker-build@main
       with:
-        token: ${{ secrets.GHCR_TOKEN }}
+        repository_token: ${{ secrets.GHCR_TOKEN }}
+        execution_level: plan

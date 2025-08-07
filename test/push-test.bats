@@ -6,11 +6,10 @@ load "$(dirname "$BATS_TEST_FILENAME")/helpers"
 @test "push test with push-event-01.json" {
   
   # Run act command for push event test
-  run act -s GITHUB_TOKEN=$(gh auth token) -e push-event-01.json -W .github/workflows/integration-test.yml
+  run act -s GHCR_TOKEN=$(gh auth token) -e push-event-01.json -W .github/workflows/demo-build.yml
   
-  # Assert that act command executed successfully
-  assert_equal "act command should exit with code 0" "0" "$status"
   debug "${output}"
+  assert_equal "act command should exit with code 0" "0" "$status"
   
   changed_files_json=$(extract_json_from_info "$output" "changedFiles")
   if [[ -n "$changed_files_json" ]]; then

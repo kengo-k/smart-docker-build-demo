@@ -1,0 +1,17 @@
+name: Smart Docker Build - Build Only
+
+on:
+  workflow_dispatch:
+
+jobs:
+  smart-docker-build-demo:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Test smart-docker-build action
+      uses: kengo-k/smart-docker-build@main
+      with:
+        repository_token: ${{ secrets.GHCR_TOKEN }}
+        execution_level: build
