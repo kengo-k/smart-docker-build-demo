@@ -1,11 +1,6 @@
-name: smart-docker-build demo
+name: Smart Docker Build - Plan Only
 
 on:
-  push:
-    branches: [ main ]
-    tags: [ '*' ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -19,3 +14,4 @@ jobs:
       uses: kengo-k/smart-docker-build@main
       with:
         repository_token: ${{ secrets.GHCR_TOKEN }}
+        execution_level: plan
