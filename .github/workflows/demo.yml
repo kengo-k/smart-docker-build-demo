@@ -16,6 +16,6 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Test smart-docker-build action
-      uses: kengo-k/smart-docker-build@main
+      uses: kengo-k/smart-docker-build@v0.1
       with:
         repository_token: ${{ secrets.GHCR_TOKEN }}
