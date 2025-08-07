@@ -6,7 +6,7 @@ load "$(dirname "$BATS_TEST_FILENAME")/helpers"
 @test "push test with push-event-01.json" {
   
   # Run act command for push event test
-  run act -s GITHUB_TOKEN=$(gh auth token) -e push-event-01.json -W .github/workflows/integration-test.yml
+  run act -s GHCR_TOKEN=$(gh auth token) -e push-event-01.json -W .github/workflows/demo-build.yml
   
   debug "${output}"
   assert_equal "act command should exit with code 0" "0" "$status"
